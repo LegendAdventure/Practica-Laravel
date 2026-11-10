@@ -29,4 +29,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function createdProjects()
+    {
+        return $this->hasMany(Project::class); //Configuramos la relación 1:N entre User y Project, un usuario puede crear muchos proyectos
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class) // Configuramos la relación N:N entre User y Project, un usuario puede participar en muchos proyectos y un proyecto puede tener muchos usuarios
+                    ->withPivot('role', 'contribution_hours') // Indicamos que queremos acceder a los atributos adicionales de la tabla intermedia
+
+                    ->withTimestamps(); // Indicamos que queremos que se gestionen automáticamente los timestamps de la tabla intermedia, 
+                    // al añadir un usuario a un proyecto, se registrará la fecha de creación y actualización de la relación.
+    }
 }
