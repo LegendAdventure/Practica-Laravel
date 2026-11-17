@@ -47,9 +47,9 @@
 
                     <!-- Este bloque estaba dentro del form. Ahora está fuera, donde corresponde -->
                     <div class="flex justify-between items-center mb-6 mt-6">
-                        <h3 class="text-lg font-bold">Mis Proyectos</h3>
-                        <a href="{{ route('projects.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            + Nuevo Proyecto
+                        <h3 class="text-lg font-bold">  </h3>
+                        <a href="{{ route('projects.create') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            Borrar datos
                         </a>
                     </div>
 
